@@ -608,3 +608,44 @@ main::-webkit-scrollbar {
   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+#music {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+#music img {
+  width: 100%;
+}
+#zt {
+  display: none;
+}
+#musiclist {
+  width: 250%;
+  height: auto;
+  background-color: white;
+  box-shadow: 5px 5px 9px #8c8b8b;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  transition: all 0.5s;
+}
+#music:hover #musiclist {
+  height: auto;
+}
+#musiclist ul {
+  list-style-type: none;
+}
+#musiclist li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#musiclist li img {
+  width: 10%;
+}

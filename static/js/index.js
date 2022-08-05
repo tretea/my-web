@@ -99,3 +99,49 @@ main.onscroll = function (e) {
     }
   }
 };
+
+// 音乐播放功能
+let m1 = document.getElementById('m1');
+let m2 = document.getElementById('m2');
+let m3 = document.getElementById('m3');
+let m4 = document.getElementById('m4');
+let play = document.getElementById('play');
+let zt = document.getElementById('zt');
+let pre = document.getElementById('pre');
+let musicnext = document.getElementById('musicnext');
+let musiclist = [m1, m2, m3, m4];
+play.onclick = function () {
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist[0].play();
+};
+zt.onclick = function () {
+  play.style['display'] = 'block';
+  zt.style['display'] = 'none';
+  musiclist[0].pause();
+};
+musicnext.onclick = function () {
+  musiclist[0].pause();
+  musiclist[0].currentTime = 0;
+  let temp = musiclist[0];
+  for (let i = 0; i < musiclist.length; i++) {
+    musiclist[i] = musiclist[i + 1];
+  }
+  musiclist[3] = temp;
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist[0].play();
+};
+
+pre.onclick = function () {
+  musiclist[0].pause();
+  musiclist[0].currentTime = 0;
+  let temp = musiclist[3];
+  for (let i = musiclist.length - 1; i >= 0; i--) {
+    musiclist[i] = musiclist[i - 1];
+  }
+  musiclist[0] = temp;
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist[0].play();
+};
