@@ -187,3 +187,51 @@ m4.oncanplay = function () {
   musictitle[3].getElementsByTagName('img')[0].style = '';
   musictitle[3].getElementsByTagName('img')[1].style = '';
 };
+musictitle[0].ondblclick = function () {
+  m2.pause();
+  m2.currentTime = 0;
+  m3.pause();
+  m3.currentTime = 0;
+  m4.pause();
+  m4.currentTime = 0;
+  m1.play();
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist = [m1, m2, m3, m4];
+};
+musictitle[1].ondblclick = function () {
+  m1.pause();
+  m1.currentTime = 0;
+  m3.pause();
+  m3.currentTime = 0;
+  m4.pause();
+  m4.currentTime = 0;
+  m2.play();
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist = [m2, m3, m4, m1];
+};
+musictitle[2].ondblclick = function () {
+  m1.pause();
+  m1.currentTime = 0;
+  m2.pause();
+  m2.currentTime = 0;
+  m4.pause();
+  m4.currentTime = 0;
+  m3.play();
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist = [m3, m4, m1, m2];
+};
+musictitle[3].ondblclick = function () {
+  m1.pause();
+  m1.currentTime = 0;
+  m2.pause();
+  m2.currentTime = 0;
+  m3.pause();
+  m3.currentTime = 0;
+  m4.play();
+  zt.style['display'] = 'block';
+  play.style['display'] = 'none';
+  musiclist = [m4, m1, m2, m3];
+};
