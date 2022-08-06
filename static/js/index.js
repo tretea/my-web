@@ -145,3 +145,45 @@ pre.onclick = function () {
   play.style['display'] = 'none';
   musiclist[0].play();
 };
+
+let musictitle = document.getElementsByClassName('musictitle');
+m1.onplay = function () {
+  musictitle[0].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[0].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
+};
+m1.oncanplay = function () {
+  musictitle[0].getElementsByTagName('img')[0].style = '';
+  musictitle[0].getElementsByTagName('img')[1].style = '';
+};
+m2.onplay = function () {
+  musictitle[1].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[1].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
+};
+m2.oncanplay = function () {
+  musictitle[1].getElementsByTagName('img')[0].style = '';
+  musictitle[1].getElementsByTagName('img')[1].style = '';
+};
+m3.onplay = function () {
+  musictitle[2].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[2].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
+};
+m3.oncanplay = function () {
+  musictitle[2].getElementsByTagName('img')[0].style = '';
+  musictitle[2].getElementsByTagName('img')[1].style = '';
+};
+m4.onplay = function () {
+  musictitle[3].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[3].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
+};
+m4.oncanplay = function () {
+  musictitle[3].getElementsByTagName('img')[0].style = '';
+  musictitle[3].getElementsByTagName('img')[1].style = '';
+};

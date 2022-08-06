@@ -637,7 +637,9 @@ main::-webkit-scrollbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 3px;
 }
 #musiclist li img {
   width: 10%;
+  display: none;
 }
