@@ -34,6 +34,9 @@ header {
 #TopNav > h1 {
   cursor: pointer;
 }
+#TopNavMore {
+  display: none;
+}
 #nav-ul {
   display: flex;
   list-style-type: none;
@@ -158,10 +161,7 @@ main {
   left: 50%;
   transform: translate(-50%);
 }
-.link > a {
-  text-decoration: none;
-  color: black;
-}
+
 .link img {
   width: 20px;
   height: 20px;
@@ -173,6 +173,7 @@ main {
 .link:nth-of-type(1) {
   position: absolute;
   top: 20%;
+  left: 10%;
 }
 .link:nth-of-type(2) {
   position: absolute;
@@ -189,12 +190,6 @@ main {
   bottom: 20%;
   right: 1%;
 }
-.link:nth-of-type(1) {
-  position: absolute;
-  top: 20%;
-  left: 10%;
-}
-
 #mytext {
   width: 80%;
   position: absolute;
@@ -641,5 +636,8 @@ main::-webkit-scrollbar {
 }
 #musiclist li img {
   width: 10%;
+  display: none;
+}
+.last {
   display: none;
 }

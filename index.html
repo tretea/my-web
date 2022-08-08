@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./static/css/indexPC.css" />
+    <link
+      rel="stylesheet"
+      href="./static/css/indexPC.css"
+      media="screen and (min-width:768px)"
+    />
+    <link
+      rel="stylesheet"
+      href="./static/css/indexphone.css"
+      media="screen and (max-width:768px)"
+    />
     <title>个人网站</title>
   </head>
   <body>
@@ -65,20 +74,28 @@
             </ul>
           </div>
         </div>
-        <ul id="nav-ul">
-          <a href="#AboutMe">
-            <li class="nav-li">
-              关于自己
-              <div class="x"></div>
-            </li>
-          </a>
-          <a href="#obj">
-            <li class="nav-li">
-              项目展示
-              <div class="x"></div>
-            </li>
-          </a>
-        </ul>
+        <div style="position: relative">
+          <img
+            src="./static/imgs/更多.png"
+            alt=""
+            style="width: 40px"
+            id="TopNavMore"
+          />
+          <ul id="nav-ul">
+            <a href="#AboutMe">
+              <li class="nav-li">
+                关于自己
+                <div class="x"></div>
+              </li>
+            </a>
+            <a href="#obj">
+              <li class="nav-li">
+                项目展示
+                <div class="x"></div>
+              </li>
+            </a>
+          </ul>
+        </div>
       </nav>
     </header>
     <main>
@@ -138,6 +155,29 @@
             </div>
           </div>
         </div>
+        <div id="text1" class="abouttext">
+          <span>
+            &emsp;&emsp;计算机的所有东西都是人做出来的，别人能想得出来的，我也一定能想得出来，在计算机里头，没有任何黑魔法，所有的东西只不过是，我现在不知道而已，总有一天，我会把所有细节，内部所有东西全都搞明白。
+          </span>
+        </div>
+        <div id="text2" class="abouttext">
+          <span
+            >&emsp;&emsp;虚心学习，耐心研究是基本素质，从专科学校组织的培训机构学习以及升本后参与的各类计算机比赛，已经将计算机当成自已的一项长期兴趣，能将自己的兴趣作为生存的一项工具是一件很幸运的事情，希望能在其中，实现自己的人生价值。
+          </span>
+        </div>
+        <div id="steps">
+          <hr class="step" id="step0" />
+          <div class="content textcenter">python基础</div>
+          <hr class="step" id="step1" />
+          <div class="content textcenter">python爬虫</div>
+          <hr class="step" id="step2" />
+          <div class="content textcenter">Django</div>
+          <hr class="step" id="step3" />
+          <div class="content textcenter">MySQL</div>
+          <hr class="step" id="step4" />
+          <div class="content textcenter">Vue</div>
+          <hr class="step" id="step5" />
+        </div>
         <div id="tech">
           <div class="t textcenter" id="t1">
             <span>HTML</span>
@@ -190,7 +230,7 @@
             <img
               src="./static/imgs/nodejs.jpg"
               alt=""
-              style="width: 120px"
+              style="width: 120px; height: 70px"
             /><span>轻后台 可做简单的后端开发</span>
           </div>
           <div class="t textcenter" id="t7">
@@ -200,29 +240,14 @@
             <img src="./static/imgs/uniapp.jpg" alt="" style="height: 70px" />
             <span>使用vue语法 跨端打包 一套代码 多端打包</span>
           </div>
-        </div>
-        <div id="text1">
-          <span>
-            &emsp;&emsp;计算机的所有东西都是人做出来的，别人能想得出来的，我也一定能想得出来，在计算机里头，没有任何黑魔法，所有的东西只不过是，我现在不知道而已，总有一天，我会把所有细节，内部所有东西全都搞明白。
-          </span>
-        </div>
-        <div id="text2">
-          <span
-            >&emsp;&emsp;虚心学习，耐心研究是基本素质，从专科学校组织的培训机构学习以及升本后参与的各类计算机比赛，已经将计算机当成自已的一项长期兴趣，能将自己的兴趣作为生存的一项工具是一件很幸运的事情，希望能在其中，实现自己的人生价值。
-          </span>
-        </div>
-        <div id="steps">
-          <hr class="step" id="step0" />
-          <div class="content textcenter">python基础</div>
-          <hr class="step" id="step1" />
-          <div class="content textcenter">python爬虫</div>
-          <hr class="step" id="step2" />
-          <div class="content textcenter">Django</div>
-          <hr class="step" id="step3" />
-          <div class="content textcenter">MySQL</div>
-          <hr class="step" id="step4" />
-          <div class="content textcenter">Vue</div>
-          <hr class="step" id="step5" />
+          <div class="techbox textcenter last">
+            <img
+              src="./static/imgs/wechatobj.jpg"
+              alt=""
+              style="height: 70px"
+            />
+            <span>使用wxml，wxcss，语法，以及微信API</span>
+          </div>
         </div>
       </div>
       <div id="obj">
