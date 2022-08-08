@@ -37,6 +37,7 @@ let timer = setInterval(() => {
   second.innerText = nums(date.getSeconds());
 }, 1000);
 
+// 项目
 let objnavul = document.getElementById('objnavul');
 let objnavli = document.getElementsByClassName('objtags');
 let objnav = document.getElementsByClassName('objtags');
@@ -110,128 +111,113 @@ let zt = document.getElementById('zt');
 let pre = document.getElementById('pre');
 let musicnext = document.getElementById('musicnext');
 let musiclist = [m1, m2, m3, m4];
-play.onclick = function () {
+let musictitle = document.getElementsByClassName('musictitle');
+let musicid = 0;
+function MusicPlay() {
   zt.style['display'] = 'block';
   play.style['display'] = 'none';
-  musiclist[0].play();
-};
-zt.onclick = function () {
+}
+function MusicZt() {
   play.style['display'] = 'block';
   zt.style['display'] = 'none';
-  musiclist[0].pause();
+}
+function MusicNext() {
+  let oldid = musicid;
+  let newid = musicid + 1;
+  if (newid >= musiclist.length) {
+    newid = 0;
+  }
+  return [oldid, newid];
+}
+function MusicPre() {
+  let oldid = musicid;
+  let newid = musicid - 1;
+  if (newid < 0) {
+    newid = musiclist.length - 1;
+  }
+  return [oldid, newid];
+}
+play.onclick = function () {
+  MusicPlay();
+  musiclist[musicid].play();
+  musictitle[musicid].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[musicid].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
+};
+zt.onclick = function () {
+  MusicZt();
+  musiclist[musicid].pause();
 };
 musicnext.onclick = function () {
-  musiclist[0].pause();
-  musiclist[0].currentTime = 0;
-  let temp = musiclist[0];
-  for (let i = 0; i < musiclist.length; i++) {
-    musiclist[i] = musiclist[i + 1];
-  }
-  musiclist[3] = temp;
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist[0].play();
+  let data = MusicNext();
+  musiclist[data[0]].pause();
+  musiclist[data[0]].currentTime = 0;
+  musictitle[data[0]].getElementsByTagName('img')[0].style = '';
+  musictitle[data[0]].getElementsByTagName('img')[1].style = '';
+
+  musicid = data[1];
+  MusicPlay();
+  musiclist[musicid].play();
+  musictitle[musicid].getElementsByTagName('img')[0].style['display'] =
+    'inline-block';
+  musictitle[musicid].getElementsByTagName('img')[1].style['display'] =
+    'inline-block';
 };
 
 pre.onclick = function () {
-  musiclist[0].pause();
-  musiclist[0].currentTime = 0;
-  let temp = musiclist[3];
-  for (let i = musiclist.length - 1; i >= 0; i--) {
-    musiclist[i] = musiclist[i - 1];
-  }
-  musiclist[0] = temp;
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist[0].play();
-};
+  let data = MusicPre();
+  musiclist[data[0]].pause();
+  musiclist[data[0]].currentTime = 0;
+  musictitle[data[0]].getElementsByTagName('img')[0].style = '';
+  musictitle[data[0]].getElementsByTagName('img')[1].style = '';
 
-let musictitle = document.getElementsByClassName('musictitle');
-m1.onplay = function () {
-  musictitle[0].getElementsByTagName('img')[0].style['display'] =
+  musicid = data[1];
+  MusicPlay();
+  musiclist[musicid].play();
+  musictitle[musicid].getElementsByTagName('img')[0].style['display'] =
     'inline-block';
-  musictitle[0].getElementsByTagName('img')[1].style['display'] =
-    'inline-block';
-};
-m1.oncanplay = function () {
-  musictitle[0].getElementsByTagName('img')[0].style = '';
-  musictitle[0].getElementsByTagName('img')[1].style = '';
-};
-m2.onplay = function () {
-  musictitle[1].getElementsByTagName('img')[0].style['display'] =
-    'inline-block';
-  musictitle[1].getElementsByTagName('img')[1].style['display'] =
+  musictitle[musicid].getElementsByTagName('img')[1].style['display'] =
     'inline-block';
 };
-m2.oncanplay = function () {
-  musictitle[1].getElementsByTagName('img')[0].style = '';
-  musictitle[1].getElementsByTagName('img')[1].style = '';
-};
-m3.onplay = function () {
-  musictitle[2].getElementsByTagName('img')[0].style['display'] =
-    'inline-block';
-  musictitle[2].getElementsByTagName('img')[1].style['display'] =
-    'inline-block';
-};
-m3.oncanplay = function () {
-  musictitle[2].getElementsByTagName('img')[0].style = '';
-  musictitle[2].getElementsByTagName('img')[1].style = '';
-};
-m4.onplay = function () {
-  musictitle[3].getElementsByTagName('img')[0].style['display'] =
-    'inline-block';
-  musictitle[3].getElementsByTagName('img')[1].style['display'] =
-    'inline-block';
-};
-m4.oncanplay = function () {
-  musictitle[3].getElementsByTagName('img')[0].style = '';
-  musictitle[3].getElementsByTagName('img')[1].style = '';
-};
-musictitle[0].ondblclick = function () {
-  m2.pause();
-  m2.currentTime = 0;
-  m3.pause();
-  m3.currentTime = 0;
-  m4.pause();
-  m4.currentTime = 0;
-  m1.play();
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist = [m1, m2, m3, m4];
-};
-musictitle[1].ondblclick = function () {
-  m1.pause();
-  m1.currentTime = 0;
-  m3.pause();
-  m3.currentTime = 0;
-  m4.pause();
-  m4.currentTime = 0;
-  m2.play();
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist = [m2, m3, m4, m1];
-};
-musictitle[2].ondblclick = function () {
-  m1.pause();
-  m1.currentTime = 0;
-  m2.pause();
-  m2.currentTime = 0;
-  m4.pause();
-  m4.currentTime = 0;
-  m3.play();
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist = [m3, m4, m1, m2];
-};
-musictitle[3].ondblclick = function () {
-  m1.pause();
-  m1.currentTime = 0;
-  m2.pause();
-  m2.currentTime = 0;
-  m3.pause();
-  m3.currentTime = 0;
-  m4.play();
-  zt.style['display'] = 'block';
-  play.style['display'] = 'none';
-  musiclist = [m4, m1, m2, m3];
-};
+let musictitleli = [];
+for (let i = 0; i < musictitle.length; i++) {
+  musictitleli.push(musictitle[i].innerText);
+}
+for (let i = 0; i < musictitle.length; i++) {
+  musictitle[i].ondblclick = function (e) {
+    let text = e.target.innerText;
+    let newid = musictitleli.indexOf(text);
+    musiclist[musicid].pause();
+    musiclist[musicid].currentTime = 0;
+    musictitle[musicid].getElementsByTagName('img')[0].style = '';
+    musictitle[musicid].getElementsByTagName('img')[1].style = '';
+    musicid = newid;
+    MusicPlay();
+    musiclist[musicid].play();
+    musictitle[musicid].getElementsByTagName('img')[0].style['display'] =
+      'inline-block';
+    musictitle[musicid].getElementsByTagName('img')[1].style['display'] =
+      'inline-block';
+  };
+}
+
+for (let i = 0; i < musiclist.length; i++) {
+  musiclist[i].onended = function () {
+    musiclist[i].pause();
+    musiclist[i].currentTime = 0;
+    musictitle[i].getElementsByTagName('img')[0].style = '';
+    musictitle[i].getElementsByTagName('img')[1].style = '';
+    let newid = i + 1;
+    if (newid >= musiclist.length) {
+      newid = 0;
+    }
+    musicid = newid;
+    MusicPlay();
+    musiclist[musicid].play();
+    musictitle[musicid].getElementsByTagName('img')[0].style['display'] =
+      'inline-block';
+    musictitle[musicid].getElementsByTagName('img')[1].style['display'] =
+      'inline-block';
+  };
+}

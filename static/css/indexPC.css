@@ -70,8 +70,7 @@ main {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: scroll;
   scroll-behavior: smooth;
 }
 #Index {
