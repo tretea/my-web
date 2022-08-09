@@ -602,7 +602,9 @@ main::-webkit-scrollbar {
   position: relative;
   cursor: pointer;
 }
-
+#music .musiclogo {
+  display: none;
+}
 #music img {
   width: 100%;
 }

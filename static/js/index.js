@@ -221,3 +221,13 @@ for (let i = 0; i < musiclist.length; i++) {
       'inline-block';
   };
 }
+for (let i = 0; i < musiclist.length; i++) {
+  let musiclogo = document.getElementsByClassName('musiclogo')[0];
+  musiclist[i].onplay = function () {
+    musiclogo.style['animation'] = 'circlemusic 10s linear infinite';
+    musiclogo.style['animation-play-state'] = 'running';
+  };
+  musiclist[i].onpause = function () {
+    musiclogo.style['animation-play-state'] = 'paused';
+  };
+}
